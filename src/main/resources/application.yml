@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    username: root
+    url: jdbc:mysql://localhost:3306/okoyo-store-db?useSSL=false
+    password:
+  mail:
+    protocol: smtp
+    host: smtp-mail.outlook.com
+    username: kawaiistore00@outlook.com
+    password: Vfrcsv2005
+    port: 587
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: false
+    test-connection: false
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+  thymeleaf:
+    prefix: classpath:/templates/
+
+server:
+  port: 8084
+

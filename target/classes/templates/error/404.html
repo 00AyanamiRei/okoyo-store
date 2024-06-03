@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+<head
+        th:replace="blocks/fragments :: head('Error - OKOYO', 'none')">
+        <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div th:replace="blocks/fragments :: navbar"></div>
+<div class="image-container-404-page">
+    <img src="/img/pngegg.png" alt="Error image" class="center-image-404-page">
+</div>
+<div th:insert="~{blocks/fragments :: scripts}"></div>
+
+
+<script type="text/javascript">
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+                // Registration was successful
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }, function(err) {
+                // registration failed :(
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        });
+    }
+</script>
+</body>
+</html>

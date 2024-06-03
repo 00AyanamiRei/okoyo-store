@@ -1,0 +1,17 @@
+{
+  "name": "KawaiiStore",
+  "short_name": "kawaii",
+  "description": "KawaiiStore - The cutest store on the web!",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#FFFFFF",
+  "icons": [
+    {
+      "src": "/static/img/icon1024x1024.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

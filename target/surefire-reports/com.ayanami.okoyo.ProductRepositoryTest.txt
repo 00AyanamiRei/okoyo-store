@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: com.ayanami.okoyo.ProductRepositoryTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.041 s <<< FAILURE! - in com.ayanami.okoyo.ProductRepositoryTest
+testFindByAlias  Time elapsed: 0.023 s  <<< FAILURE!
+java.lang.AssertionError: 
+
+Expecting actual not to be null
+	at com.ayanami.okoyo.ProductRepositoryTest.testFindByAlias(ProductRepositoryTest.java:26)
+

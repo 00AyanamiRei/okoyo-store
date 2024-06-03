@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="content" class="col">
+    <div class="zoom">
+        <a th:href="@{'/product/'+${product.alias}}">
+            <img class="rounded" th:src="'/product-images/'+${product.imageURL}"
+                 onerror="this.onerror=null; this.src='/img/OIG2.jpg';"
+                 width="150"/>
+            <br/>
+            <div class="card-body">
+                <b>[[${product.shortTitle}]]</b>
+                <div>
+                    <span class="font-weight-bolder text-dark">[[${product.price}]] &#8372;</span>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+</body>
+
+
+<script type="text/javascript">
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+                // Registration was successful
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }, function(err) {
+                // registration failed :(
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        });
+    }
+</script>
+</html>
