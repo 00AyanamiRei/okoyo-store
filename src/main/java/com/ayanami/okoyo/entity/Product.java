@@ -5,7 +5,10 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -29,8 +32,11 @@ public class Product {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "price")
-    private int price;
+//    @Column(name = "price")
+//    private int price;
+
+    @Column(name = "price", precision = 10, scale = 2)
+    private BigDecimal price;
 
     @Column(name = "image")
     private String imageURL;
@@ -49,6 +55,10 @@ public class Product {
     @OneToMany(mappedBy = "product")
     @ToString.Exclude
     private List<OrderBasket> orderBaskets;
+
+    public String getFormattedPrice() {
+        return formatPrice(this.price);
+    }
 
     @Transient
     public String getShortTitle() {
@@ -74,4 +84,10 @@ public class Product {
         return description;
     }
 
+    public String formatPrice(BigDecimal price) {
+        NumberFormat format = NumberFormat.getNumberInstance(Locale.US);
+        format.setMinimumFractionDigits(2);
+        format.setMaximumFractionDigits(2);
+        return format.format(price);
+    }
 }

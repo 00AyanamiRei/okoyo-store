@@ -3,6 +3,7 @@ package com.ayanami.okoyo.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -30,9 +31,13 @@ public class OrderBasket {
     @Column(name = "quantity")
     private int quantity;
 
-    @Transient
-    public float getSubtotal() {
-        return this.product.getPrice() * quantity;
-    }
+//    @Transient
+//    public float getSubtotal() {
+//        return this.product.getPrice() * quantity;
+//    }
+@Transient
+public float getSubtotal() {
+    return this.product.getPrice().multiply(BigDecimal.valueOf(quantity)).floatValue();
+}
 
 }

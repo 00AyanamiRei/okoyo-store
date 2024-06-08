@@ -13,6 +13,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,7 +38,7 @@ public class ProductTest {
         product.setTitle("new_product");
         product.setAlias("new_product");
         product.setDescription("new_product");
-        product.setPrice(36000);
+        product.setPrice(BigDecimal.valueOf(36000.99));
         product.setImageURL("https://plugins.shopware-staging.overdose.digital/thumbnail/d3/e3/a5/1690970711/test%20%281%29_1920x1920.png");
         product.setCategory(category);
         product.setVendor(vendor);
@@ -66,7 +67,7 @@ public class ProductTest {
         Integer id = 12;
         Product product = productRepo.getReferenceById(id);
 
-        product.setPrice(39000);
+        product.setPrice(BigDecimal.valueOf(39000.00));
         productRepo.save(product);
         Product updatedProduct = entityManager.find(Product.class, id);
 

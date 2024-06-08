@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.webjars.NotFoundException;
 
 import javax.transaction.Transactional;
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -58,12 +59,21 @@ public class OrderBasketService implements IOrderBasketService {
         return addedQuantity;
     }
 
+//    @Override
+//    public float updateQuantity(Integer productId, Integer quantity, User user) {
+//        public float updateQuantity(Integer productId, Integer quantity, User user) {
+//        orderBasketRep.updateQuantity(quantity, productId, user.getId());
+//        Product product = productRep.getReferenceById(productId);
+//
+//        return product.getPrice() * quantity;
+//    }
+
     @Override
     public float updateQuantity(Integer productId, Integer quantity, User user) {
         orderBasketRep.updateQuantity(quantity, productId, user.getId());
         Product product = productRep.getReferenceById(productId);
 
-        return product.getPrice() * quantity;
+        return product.getPrice().multiply(BigDecimal.valueOf(quantity)).floatValue();
     }
 
     @Override

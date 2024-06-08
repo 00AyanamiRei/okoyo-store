@@ -1,8 +1,11 @@
 spring:
   datasource:
-    username: root
-    url: jdbc:mysql://localhost:3306/okoyo-store-db?useSSL=false
-    password:
+#    username: root
+#    url: jdbc:mysql://localhost:3306/okoyo-store-db?useSSL=false
+#    password:
+     username: root
+     password: eJiOPbhTIzcdWkvZpvjaKqRjkXxnQycg
+     url: jdbc:mysql://roundhouse.proxy.rlwy.net:31897/railway
   mail:
     protocol: smtp
     host: smtp-mail.outlook.com
@@ -17,9 +20,9 @@ spring:
             enable: true
             required: false
     test-connection: false
-#  jpa:
-#    hibernate:
-#      ddl-auto: update
+  jpa:
+    hibernate:
+      ddl-auto: update
   thymeleaf:
     prefix: classpath:/templates/
 
