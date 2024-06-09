@@ -1,3 +1,44 @@
+#name: AzureSpringCloud
+#on: push
+#env:
+#  ASC_PACKAGE_PATH: ${{ github.workspace }}
+#  JAVA_VERSION: 17
+#  AZURE_SUBSCRIPTION: 174b7a78-ef38-46eb-a049-7d9f11fe9856
+#  RESOURCE_GROUP: web-okoyo
+#  SERVICE_NAME: okoyo-store
+#  APP_NAME: website-okoyo-store
+#
+#jobs:
+#  deploy_to_production:
+#    runs-on: ubuntu-latest
+#    name: Deploy to Production with Artifact
+#    steps:
+#      - name: Checkout GitHub Action
+#        uses: actions/checkout@v2
+#
+#      - name: Set up JDK ${{ env.JAVA_VERSION }}
+#        uses: actions/setup-java@v1
+#        with:
+#          java-version: ${{ env.JAVA_VERSION }}
+#          distribution: 'temurin'
+#
+#      - name: Maven Build and Clean
+#        run: |
+#          mvn clean package -DskipTests
+#
+#      - name: Login via Azure CLI
+#        uses: azure/login@v1
+#        with:
+#          creds: ${{ secrets.AZURE_CREDENTIALS }}
+#
+#      - name: Deploy to Azure Spring Cloud
+#        run: |
+#          az spring app deploy \
+#            --subscription ${{ env.AZURE_SUBSCRIPTION }} \
+#            --resource-group ${{ env.RESOURCE_GROUP }} \
+#            --service ${{ env.SERVICE_NAME }} \
+#            --name ${{ env.APP_NAME }} \
+#            --artifact-path ${{ env.ASC_PACKAGE_PATH }}/target/*.jar
 name: AzureSpringCloud
 on: push
 env:
@@ -7,6 +48,9 @@ env:
   RESOURCE_GROUP: web-okoyo
   SERVICE_NAME: okoyo-store
   APP_NAME: website-okoyo-store
+  DB_URL: jdbc:mysql://roundhouse.proxy.rlwy.net:31897/railway
+  DB_USERNAME: root
+  DB_PASSWORD: eJiOPbhTIzcdWkvZpvjaKqRjkXxnQycg
 
 jobs:
   deploy_to_production:
@@ -38,4 +82,5 @@ jobs:
             --resource-group ${{ env.RESOURCE_GROUP }} \
             --service ${{ env.SERVICE_NAME }} \
             --name ${{ env.APP_NAME }} \
-            --artifact-path ${{ env.ASC_PACKAGE_PATH }}/target/*.jar
+            --artifact-path ${{ env.ASC_PACKAGE_PATH }}/target/*.jar \
+            --env DB_URL=${{ env.DB_URL }} DB_USERNAME=${{ env.DB_USERNAME }} DB_PASSWORD=${{ env.DB_PASSWORD }}
