@@ -9,9 +9,9 @@
         <relativePath/>
     </parent>
     <groupId>com.ayanami</groupId>
-    <artifactId>okoyo</artifactId>
+    <artifactId>website-okoyo-store</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>okoyo</name>
+    <name>website-okoyo-store</name>
     <description>Site project for Spring Boot</description>
     <properties>
         <java.version>17</java.version>
