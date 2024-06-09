@@ -4,6 +4,9 @@ env:
   ASC_PACKAGE_PATH: ${{ github.workspace }}
   JAVA_VERSION: 17
   AZURE_SUBSCRIPTION: 174b7a78-ef38-46eb-a049-7d9f11fe9856
+  RESOURCE_GROUP: web-okoyo
+  SERVICE_NAME: okoyo-store
+  APP_NAME: website-okoyo-store
 
 jobs:
   deploy_to_production:
@@ -28,13 +31,11 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Deploy to Production with Artifact
-        uses: azure/spring-cloud-deploy@v1
-        with:
-          azure-subscription: ${{ env.AZURE_SUBSCRIPTION }}
-          action: Deploy
-          service-name: okoyo-store
-          app-name: website-okoyo-store
-          use-staging-deployment: false
-          package: ${{ env.ASC_PACKAGE_PATH }}/**/*.jar
-          api-version: '2023-11-01'
+      - name: Deploy to Azure Spring Cloud
+        run: |
+          az spring app deploy \
+            --subscription ${{ env.AZURE_SUBSCRIPTION }} \
+            --resource-group ${{ env.RESOURCE_GROUP }} \
+            --service ${{ env.SERVICE_NAME }} \
+            --name ${{ env.APP_NAME }} \
+            --artifact-path ${{ env.ASC_PACKAGE_PATH }}/target/*.jar
