@@ -37,7 +37,7 @@
 #          use-staging-deployment: false
 #          package: ${{ env.ASC_PACKAGE_PATH }}/**/*.jar
 
-name: AzureSpringApps
+name: AzureSpringCloud
 on: push
 env:
   ASC_PACKAGE_PATH: ${{ github.workspace }}
@@ -54,7 +54,6 @@ jobs:
       - name: Set up Java 18
         uses: actions/setup-java@v3
         with:
-          distribution: 'temurin'
           java-version: '18'
 
       - name: maven build, clean
