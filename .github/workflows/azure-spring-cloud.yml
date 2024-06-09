@@ -2,7 +2,7 @@ name: AzureSpringCloud
 on: push
 env:
   ASC_PACKAGE_PATH: ${{ github.workspace }}
-  JAVA_VERSION: 18
+  JAVA_VERSION: 17
   AZURE_SUBSCRIPTION: 174b7a78-ef38-46eb-a049-7d9f11fe9856
 
 jobs:
