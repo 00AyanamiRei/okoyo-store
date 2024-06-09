@@ -8,9 +8,9 @@ env:
 jobs:
   deploy_to_production:
     runs-on: ubuntu-latest
-    name: deploy to production with artifact
+    name: Deploy to Production with Artifact
     steps:
-      - name: Checkout Github Action
+      - name: Checkout GitHub Action
         uses: actions/checkout@v2
 
       - name: Set up JDK ${{ env.JAVA_VERSION }}
@@ -19,7 +19,7 @@ jobs:
           java-version: ${{ env.JAVA_VERSION }}
           distribution: 'temurin'
 
-      - name: maven build, clean
+      - name: Maven Build and Clean
         run: |
           mvn clean package -DskipTests
 
@@ -28,7 +28,7 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: deploy to production with artifact
+      - name: Deploy to Production with Artifact
         uses: azure/spring-cloud-deploy@v1
         with:
           azure-subscription: ${{ env.AZURE_SUBSCRIPTION }}
@@ -37,3 +37,4 @@ jobs:
           app-name: website-okoyo-store
           use-staging-deployment: false
           package: ${{ env.ASC_PACKAGE_PATH }}/**/*.jar
+          api-version: '2023-11-01'
