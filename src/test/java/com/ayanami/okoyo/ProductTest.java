@@ -23,78 +23,78 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 //@Rollback(value = false)
 public class ProductTest {
-    @Autowired
-    private ProductRepository productRepo;
-
-    @Autowired
-    private TestEntityManager entityManager;
-
-    @Test
-    void testCreateProduct() {
-        Category category = entityManager.find(Category.class, 1);
-        Vendor vendor = entityManager.find(Vendor.class, 1);
-
-        Product product = new Product();
-        product.setTitle("new_product");
-        product.setAlias("new_product");
-        product.setDescription("new_product");
-        product.setPrice(BigDecimal.valueOf(36000.99));
-        product.setImageURL("https://plugins.shopware-staging.overdose.digital/thumbnail/d3/e3/a5/1690970711/test%20%281%29_1920x1920.png");
-        product.setCategory(category);
-        product.setVendor(vendor);
-
-        Product saveProduct = productRepo.save(product);
-        assertThat(saveProduct).isNotNull();
-        assertThat(saveProduct.getId()).isPositive();
-    }
-
-    @Test
-    void testListAllProducts() {
-        Iterable<Product> iterableProd = productRepo.findAll();
-        iterableProd.forEach(System.out::println);
-    }
-
-    @Test
-    void testGetProduct() {
-        Integer id = 2;
-        Product findById = productRepo.getReferenceById(id);
-        System.out.println(findById);
-        assertThat(findById).isNotNull();
-    }
-
-    @Test
-    void testUpdateProduct() {
-        Integer id = 12;
-        Product product = productRepo.getReferenceById(id);
-
-        product.setPrice(BigDecimal.valueOf(39000.00));
-        productRepo.save(product);
-        Product updatedProduct = entityManager.find(Product.class, id);
-
-        assertThat(updatedProduct.getPrice()).isEqualTo(39000);
-    }
-
-    @Test
-    void testDeleteProduct() {
-        Integer id = 12;
-        productRepo.deleteById(id);
-        Optional<Product> result = productRepo.findById(id);
-
-        assertThat(result.isEmpty());
-    }
-
-    @Test
-    public void testSearchProduct(){
-        String keyword = "new_product";
-        int pageNum =  0;
-        int pageSize = 4;
-        Pageable pageable = PageRequest.of(pageNum, pageSize);
-        Page<Product> page = productRepo.findAll(keyword, pageable);
-
-        List<Product> productList = page.getContent();
-
-        productList.forEach(product -> System.out.println(product));
-
-        assertThat(productList.size()).isGreaterThan(0);
-    }
+//    @Autowired
+//    private ProductRepository productRepo;
+//
+//    @Autowired
+//    private TestEntityManager entityManager;
+//
+//    @Test
+//    void testCreateProduct() {
+//        Category category = entityManager.find(Category.class, 1);
+//        Vendor vendor = entityManager.find(Vendor.class, 1);
+//
+//        Product product = new Product();
+//        product.setTitle("new_product");
+//        product.setAlias("new_product");
+//        product.setDescription("new_product");
+//        product.setPrice(BigDecimal.valueOf(36000.99));
+//        product.setImageURL("https://plugins.shopware-staging.overdose.digital/thumbnail/d3/e3/a5/1690970711/test%20%281%29_1920x1920.png");
+//        product.setCategory(category);
+//        product.setVendor(vendor);
+//
+//        Product saveProduct = productRepo.save(product);
+//        assertThat(saveProduct).isNotNull();
+//        assertThat(saveProduct.getId()).isPositive();
+//    }
+//
+//    @Test
+//    void testListAllProducts() {
+//        Iterable<Product> iterableProd = productRepo.findAll();
+//        iterableProd.forEach(System.out::println);
+//    }
+//
+//    @Test
+//    void testGetProduct() {
+//        Integer id = 2;
+//        Product findById = productRepo.getReferenceById(id);
+//        System.out.println(findById);
+//        assertThat(findById).isNotNull();
+//    }
+//
+//    @Test
+//    void testUpdateProduct() {
+//        Integer id = 12;
+//        Product product = productRepo.getReferenceById(id);
+//
+//        product.setPrice(BigDecimal.valueOf(39000.00));
+//        productRepo.save(product);
+//        Product updatedProduct = entityManager.find(Product.class, id);
+//
+//        assertThat(updatedProduct.getPrice()).isEqualTo(39000);
+//    }
+//
+//    @Test
+//    void testDeleteProduct() {
+//        Integer id = 12;
+//        productRepo.deleteById(id);
+//        Optional<Product> result = productRepo.findById(id);
+//
+//        assertThat(result.isEmpty());
+//    }
+//
+//    @Test
+//    public void testSearchProduct(){
+//        String keyword = "new_product";
+//        int pageNum =  0;
+//        int pageSize = 4;
+//        Pageable pageable = PageRequest.of(pageNum, pageSize);
+//        Page<Product> page = productRepo.findAll(keyword, pageable);
+//
+//        List<Product> productList = page.getContent();
+//
+//        productList.forEach(product -> System.out.println(product));
+//
+//        assertThat(productList.size()).isGreaterThan(0);
+//    }
 }

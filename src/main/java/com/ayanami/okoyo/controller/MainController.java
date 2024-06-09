@@ -6,12 +6,16 @@ import com.ayanami.okoyo.entity.*;
 import com.ayanami.okoyo.exception.ProductNotFoundException;
 import com.ayanami.okoyo.repository.CategoryRepository;
 import com.ayanami.okoyo.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.webjars.NotFoundException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.security.Principal;
 import java.util.List;
@@ -25,6 +29,8 @@ public class MainController {
     private CategoryRepository categoryRep;
     @Autowired
     private ProductService productService;
+
+    private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 
     @GetMapping("/")
     public String index(Model model) {
@@ -71,11 +77,23 @@ public class MainController {
         return "shopping-cart";
     }
 
+//    @GetMapping("/category")
+//    public String showCategories(Model model) {
+//        List<Category> listEnabledCategories = categoryRep.findAllEnabled();
+//        model.addAttribute("listCategories", listEnabledCategories);
+//        return "category";
+//    }
+
     @GetMapping("/category")
     public String showCategories(Model model) {
-        List<Category> listEnabledCategories = categoryRep.findAllEnabled();
-        model.addAttribute("listCategories", listEnabledCategories);
+        try {
+            List<Category> listEnabledCategories = categoryRep.findAllEnabled();
+            model.addAttribute("listCategories", listEnabledCategories);
+        } catch (Exception e) {
+            logger.error("Error occurred while fetching enabled categories", e);
+            model.addAttribute("error", "An error occurred while fetching enabled categories");
+            return "error";
+        }
         return "category";
     }
-
 }

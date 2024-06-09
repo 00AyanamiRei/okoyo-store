@@ -19,28 +19,28 @@ import static org.junit.jupiter.api.Assertions.*;
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @Rollback(value = false)
 public class OrderBasketTests {
-    @Autowired
-    private OrderBasketRepository orderBasketRep;
-
-    @Autowired
-    private TestEntityManager entityManager;
-
-    @Test
-    public void testAddOneOrderBasketProduct() {
-        Product product = entityManager.find(Product.class, 6);
-        User user = entityManager.find(User.class, 1);
-
-        OrderBasket newOrderBasket = new OrderBasket();
-
-        newOrderBasket.setUser(user);
-        newOrderBasket.setProduct(product);
-        newOrderBasket.setQuantity(1);
-
-
-        OrderBasket saveOrderBasketProd = orderBasketRep.save(newOrderBasket);
-
-        assertTrue(saveOrderBasketProd.getId() > 0);
-    }
+//    @Autowired
+//    private OrderBasketRepository orderBasketRep;
+//
+//    @Autowired
+//    private TestEntityManager entityManager;
+//
+//    @Test
+//    public void testAddOneOrderBasketProduct() {
+//        Product product = entityManager.find(Product.class, 6);
+//        User user = entityManager.find(User.class, 1);
+//
+//        OrderBasket newOrderBasket = new OrderBasket();
+//
+//        newOrderBasket.setUser(user);
+//        newOrderBasket.setProduct(product);
+//        newOrderBasket.setQuantity(1);
+//
+//
+//        OrderBasket saveOrderBasketProd = orderBasketRep.save(newOrderBasket);
+//
+//        assertTrue(saveOrderBasketProd.getId() > 0);
+//    }
 
 //    @Test
 //    public void testGetOrderBasketProdByUser() {

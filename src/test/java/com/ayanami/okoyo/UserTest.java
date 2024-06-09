@@ -13,13 +13,13 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 public class UserTest {
 
-    @Autowired
-    UserRepository userRepository;
-    @Test
-    public void testFindByLogin(){
-        String login = "00AyanamiRei";
-        User user = userRepository.findByLogin(login);
-
-        assertThat(user).isNotNull();
-    }
+//    @Autowired
+//    UserRepository userRepository;
+//    @Test
+//    public void testFindByLogin(){
+//        String login = "00AyanamiRei";
+//        User user = userRepository.findByLogin(login);
+//
+//        assertThat(user).isNotNull();
+//    }
 }

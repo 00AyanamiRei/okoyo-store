@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: com.ayanami.okoyo.CategoryTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.477 s <<< FAILURE! - in com.ayanami.okoyo.CategoryTest
+testCreateCategory  Time elapsed: 0.166 s  <<< ERROR!
+org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; constraint [null]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
+	at com.ayanami.okoyo.CategoryTest.testCreateCategory(CategoryTest.java:33)
+Caused by: org.hibernate.exception.ConstraintViolationException: could not execute statement
+	at com.ayanami.okoyo.CategoryTest.testCreateCategory(CategoryTest.java:33)
+Caused by: java.sql.SQLIntegrityConstraintViolationException: Cannot add or update a child row: a foreign key constraint fails (`okoyo-store-db`.`category`, CONSTRAINT `FK2y94svpmqttx80mshyny85wqr` FOREIGN KEY (`parent_id`) REFERENCES `category` (`id`))
+	at com.ayanami.okoyo.CategoryTest.testCreateCategory(CategoryTest.java:33)
+
+testGetCategory  Time elapsed: 0.165 s  <<< ERROR!
+javax.persistence.EntityNotFoundException: Unable to find com.ayanami.okoyo.entity.Category with id 1
+	at com.ayanami.okoyo.CategoryTest.testGetCategory(CategoryTest.java:41)
+

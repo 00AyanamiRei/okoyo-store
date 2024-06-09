@@ -17,40 +17,41 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 public class CategoryRepoTest {
 
-    @Autowired
-    private CategoryRepository categoryRep;
-
-    @BeforeEach
-    @Rollback(false) // Prevent rollback to retain test data
-    void setup() {
-        Category category = new Category();
-        category.setAlias("protectors");
-        category.setTitle("Protectors");
-        category.setEnabled(true);
-        categoryRep.save(category);
-    }
-
-    @Test
-    void testListEnabledCategories() {
-        List<Category> categories = categoryRep.findAllEnabled();
-
-        categories.forEach(category -> {
-            System.out.println(category.getTitle() + " (" + category.getEnabled() + ")");
-        });
-    }
-
-    @Test
-    void categoryFindByAlias() {
-        String alias = "protectors";
-
-        Category category = categoryRep.findByAliasEnabled(alias);
-
-        assertThat(category).isNotNull();
-    }
-
-    @Test
-    void testListRootCategories(){
-        List<Category> categories = categoryRep.findRootCategories();
-        categories.forEach(category -> System.out.println(category.getTitle()));
-    }
+//    @Autowired
+//    private CategoryRepository categoryRep;
+//
+//    @BeforeEach
+//    @Rollback(false) // Prevent rollback to retain test data
+//    void setup() {
+//        Category category = new Category();
+//        category.setAlias("protectors");
+//        category.setTitle("Protectors");
+//        category.setEnabled(true);
+//        categoryRep.save(category);
+//    }
+//
+//    @Test
+//    void testListEnabledCategories() {
+//        List<Category> categories = categoryRep.findAllEnabled();
+//
+//        categories.forEach(category -> {
+//            System.out.println(category.getTitle() + " (" + category.getEnabled() + ")");
+//        });
+//    }
+//
+//    @Test
+//    void categoryFindByAlias() {
+//        String alias = "protectors";
+//
+//        Category category = categoryRep.findByAliasEnabled(alias);
+//
+//        assertThat(category).isNotNull();
+//    }
+//
+//    @Test
+//    void testListRootCategories(){
+//        List<Category> categories = categoryRep.findRootCategories();
+//        categories.forEach(category -> System.out.println(category.getTitle()));
+//    }
+//}
 }

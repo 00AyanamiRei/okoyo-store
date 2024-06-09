@@ -1,0 +1,34 @@
+-------------------------------------------------------------------------------
+Test set: com.ayanami.okoyo.ProductTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 1, Errors: 4, Skipped: 0, Time elapsed: 0.843 s <<< FAILURE! - in com.ayanami.okoyo.ProductTest
+testSearchProduct  Time elapsed: 0.135 s  <<< FAILURE!
+java.lang.AssertionError: 
+
+Expecting actual:
+  0
+to be greater than:
+  0
+
+	at com.ayanami.okoyo.ProductTest.testSearchProduct(ProductTest.java:98)
+
+testCreateProduct  Time elapsed: 0.18 s  <<< ERROR!
+org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; constraint [null]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
+	at com.ayanami.okoyo.ProductTest.testCreateProduct(ProductTest.java:46)
+Caused by: org.hibernate.exception.ConstraintViolationException: could not execute statement
+	at com.ayanami.okoyo.ProductTest.testCreateProduct(ProductTest.java:46)
+Caused by: java.sql.SQLIntegrityConstraintViolationException: Column 'category_id' cannot be null
+	at com.ayanami.okoyo.ProductTest.testCreateProduct(ProductTest.java:46)
+
+testGetProduct  Time elapsed: 0.128 s  <<< ERROR!
+javax.persistence.EntityNotFoundException: Unable to find com.ayanami.okoyo.entity.Product with id 2
+	at com.ayanami.okoyo.ProductTest.testGetProduct(ProductTest.java:61)
+
+testUpdateProduct  Time elapsed: 0.133 s  <<< ERROR!
+javax.persistence.EntityNotFoundException: Unable to find com.ayanami.okoyo.entity.Product with id 12
+	at com.ayanami.okoyo.ProductTest.testUpdateProduct(ProductTest.java:70)
+
+testDeleteProduct  Time elapsed: 0.144 s  <<< ERROR!
+org.springframework.dao.EmptyResultDataAccessException: No class com.ayanami.okoyo.entity.Product entity with id 12 exists!
+	at com.ayanami.okoyo.ProductTest.testDeleteProduct(ProductTest.java:80)
+

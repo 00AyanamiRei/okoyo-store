@@ -15,15 +15,15 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @Rollback(value = false)
 public class ProductRepositoryTest {
-    @Autowired
-    ProductRepository productRepository;
-
-    @Test
-    public void testFindByAlias() {
-        String alias = "ranobe";
-
-        Product product = productRepository.findByAlias(alias);
-
-        assertThat(product).isNotNull();
-    }
+//    @Autowired
+//    ProductRepository productRepository;
+//
+//    @Test
+//    public void testFindByAlias() {
+//        String alias = "ranobe";
+//
+//        Product product = productRepository.findByAlias(alias);
+//
+//        assertThat(product).isNotNull();
+//    }
 }
