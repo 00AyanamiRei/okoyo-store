@@ -2,7 +2,7 @@ name: AzureSpringCloud
 on: push
 env:
   ASC_PACKAGE_PATH: ${{ github.workspace }}
-  JAVA_VERSION: 20.0.1
+  JAVA_VERSION: 18
   AZURE_SUBSCRIPTION: 174b7a78-ef38-46eb-a049-7d9f11fe9856
 
 jobs:
@@ -33,6 +33,6 @@ jobs:
           azure-subscription: ${{ env.AZURE_SUBSCRIPTION }}
           action: Deploy
           service-name: okoyo-store
-          app-name: web-okoyo-store
+          app-name: website-okoyo-store
           use-staging-deployment: false
           package: ${{ env.ASC_PACKAGE_PATH }}/**/*.jar
