@@ -22,32 +22,32 @@
     <div class="carousel-inner">
         <div class="carousel-item active">
             <a th:href="@{'/category/surprise-boxes'}">
-                <img class="d-block img-fluid" src="img/baner1.jpg" alt="First slide" width="1917" height="587">
+                <img class="d-block img-fluid" th:src="@{'/img/baner1.jpg'}" alt="First slide" width="1917" height="587">
             </a>
         </div>
         <div class="carousel-item">
             <a th:href="@{'/category/figures'}">
-                <img class="d-block img-fluid" src="img/baner2.jpg" alt="Second slide" width="1917" height="587">
+                <img class="d-block img-fluid" th:src="@{'/img/baner2.jpg'}" alt="Second slide" width="1917" height="587">
             </a>
         </div>
         <div class="carousel-item">
             <a th:href="@{'/category/decorative-pillows'}">
-                <img class="d-block img-fluid" src="img/baner3.jpg" alt="Third slide" width="1917" height="587">
+                <img class="d-block img-fluid" th:src="@{'/img/baner3.jpg'}" alt="Third slide" width="1917" height="587">
             </a>
         </div>
         <div class="carousel-item">
             <a th:href="@{'/category/kigurumi'}">
-                <img class="d-block img-fluid" src="img/baner4.jpg" alt="Third slide" width="1917" height="587">
+                <img class="d-block img-fluid" th:src="@{'/img/baner4.jpg'}" alt="Third slide" width="1917" height="587">
             </a>
         </div>
         <div class="carousel-item">
             <a th:href="@{'/category/printed-products'}">
-                <img class="d-block img-fluid" src="img/baner6.jpg" alt="Third slide" width="1917" height="587">
+                <img class="d-block img-fluid" th:src="@{'/img/6.jpg'}" alt="Third slide" width="1917" height="587">
             </a>
         </div>
         <div class="carousel-item">
             <a th:href="@{'/category/manga'}">
-                <img class="d-block img-fluid" src="img/baner7.jpg" alt="Third slide" width="1917" height="587">
+                <img class="d-block img-fluid" th:src="@{'/img/baner7.jpg'}" alt="Third slide" width="1917" height="587">
             </a>
         </div>
     </div>
@@ -96,8 +96,8 @@
                             <a th:href="@{'/product/'+${product.alias}}">
                                 <div class="view overlay">
                                     <img class="card-img-top"
-                                    th:src="'product-images/'+${product.imageURL}"
-                                    onerror="this.onerror=null; this.src='img/OIG2.jpg';"/>
+                                    th:src="@{'/product-images/'+${product.imageURL}}"
+                                    onerror="this.onerror=null; this.src='/img/OIG2.jpg';"/>
                                     <div class="mask rgba-white-slight"></div>
                                 </div>
                                 <div class="card-body text-center">

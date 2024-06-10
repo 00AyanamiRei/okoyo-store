@@ -38,9 +38,9 @@
                                         </div>
                                         <a th:href="@{'/product/' + ${product.alias}}" class="zoom">
                                             <img class="img-fluid mx-auto d-block image"
-                                                 th:src="'product-images/'+${product.imageURL}" width="130"
+                                                 th:src="@{'/product-images/'+${product.imageURL}}" width="130"
                                                  height="130"
-                                                 onerror="this.onerror=null; this.src='img/OIG2.jpg';"/>
+                                                 onerror="this.onerror=null; this.src='/img/OIG2.jpg';"/>
                                         </a>
                                     </div>
                                     <div class="col-md-9 text-center mt-5">

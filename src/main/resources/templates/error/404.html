@@ -9,7 +9,7 @@
 <body>
 <div th:replace="blocks/fragments :: navbar"></div>
 <div class="image-container-404-page">
-    <img src="assets/pngegg.png" alt="Error image" class="center-image-404-page">
+    <img th:src="@{/assets/pngegg.png}" alt="Error image" class="center-image-404-page">
 </div>
 <div th:insert="~{blocks/fragments :: scripts}"></div>
 

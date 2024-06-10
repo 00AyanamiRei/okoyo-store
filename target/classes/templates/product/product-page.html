@@ -18,8 +18,8 @@
 
 
 
-                <img th:src="'product-images/'+${product.imageURL}"
-                     onerror="this.onerror=null; this.src='img/OIG2.jpg';"
+                <img th:src="@{'/product-images/'+${product.imageURL}}"
+                     onerror="this.onerror=null; this.src='/img/OIG2.jpg';"
                      class="img-fluid rounded" width="300"/>
 
 

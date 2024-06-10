@@ -110,7 +110,7 @@ public class OrderController {
         helper.setSubject(subject);
         helper.setText(mailContent, true);
 
-        ClassPathResource pathResource = new ClassPathResource("static/assets/logo.gif");
+        ClassPathResource pathResource = new ClassPathResource("/static/assets/logo.gif");
         helper.addInline("logoImage", pathResource);
         javaMailSender.send(message);
     }

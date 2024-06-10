@@ -4,8 +4,8 @@
 <div th:fragment="content" class="col">
     <div class="zoom">
         <a th:href="@{'/product/'+${product.alias}}">
-            <img class="rounded" th:src="'product-images/'+${product.imageURL}"
-                 onerror="this.onerror=null; this.src='img/OIG2.jpg';"
+            <img class="rounded" th:src="@{'/product-images/'+${product.imageURL}}"
+                 onerror="this.onerror=null; this.src='/img/OIG2.jpg';"
                  width="150"/>
             <br/>
             <div class="card-body">

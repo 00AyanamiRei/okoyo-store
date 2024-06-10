@@ -9,7 +9,7 @@
 <body class="bg-white">
 <div class="container">
     <a href="/" class="navbar-brand waves-effect rounded mt-2">
-        <img th:src="@{assets/logo.gif}" width="100">
+        <img th:src="@{/assets/logo.gif}" width="100">
     </a>
     <div class="language_selector mt-4 float-right row">
         <div class="col border-right">
@@ -35,8 +35,8 @@
                         <li class="list-group-item d-flex justify-content-between lh-condensed">
                             <div>
                                 <img class="img-fluid mx-auto d-block image"
-                                     th:src="'product-images/'+${product.imageURL}" width="50" height="50"
-                                     onerror="this.onerror=null; this.src='img/OIG2.jpg';"/>
+                                     th:src="@{'/product-images/'+${product.imageURL}}" width="50" height="50"
+                                     onerror="this.onerror=null; this.src='/img/OIG2.jpg';"/>
                                 <h6 class="my-0">
                                     <a th:text="${product.title}"
                                        th:href="@{'/product/' + ${product.alias}}"></a>

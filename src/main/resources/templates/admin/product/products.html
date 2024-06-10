@@ -105,8 +105,8 @@
             <tr th:each="product : ${products}">
                 <td class="d-none d-sm-table-cell" th:text="${product.id}"></td>
                 <td><img class="img-fluid mx-auto d-block image" width="150" height="150"
-                         th:src="'product-images/'+${product.imageURL}"
-                         onerror="this.onerror=null; this.src='img/OIG2.jpg';"/></td>
+                         th:src="@{'/product-images/'+${product.imageURL}}"
+                         onerror="this.onerror=null; this.src='/img/OIG2.jpg';"/></td>
                 <td th:title="${product.title}" th:text="${product.title}"></td>
                 <td class="d-none d-sm-table-cell" th:title="${product.alias}">
                     <a class="link-detail" th:href="@{'/product/'+${product.alias}}">

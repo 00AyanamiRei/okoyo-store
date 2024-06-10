@@ -25,8 +25,8 @@
             <tr th:each="category : ${categories}">
                 <td th:text="${category.id}"></td>
                 <td><img class="img-fluid mx-auto d-block image"
-                         th:src="'category-images/'+${category.imageURL}"
-                         onerror="this.onerror=null; this.src='img/OIG2.jpg';"
+                         th:src="@{'/category-images/'+${category.imageURL}}"
+                         onerror="this.onerror=null; this.src='/img/OIG2.jpg';"
                          width="150" height="150">
                 </td>
                 <td th:text="${category.title}"></td>

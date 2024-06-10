@@ -16,8 +16,8 @@
                 <div class="text-center zoom">
                     <img style="-webkit-filter: drop-shadow(3px 3px 3px #222); filter: drop-shadow(3px 3px 3px #222);
                      width: 140px; height: 140px;"
-                         th:src="'category-images/'+${cat.imageURL}"
-                         onerror="this.onerror=null; this.src='img/OIG2.jpg';"/>
+                         th:src="@{'/category-images/'+${cat.imageURL}}"
+                         onerror="this.onerror=null; this.src='/img/OIG2.jpg';"/>
                 </div>
                 <div class="category_label text-center mt-4">[[${cat.title}]]</div>
             </a>
