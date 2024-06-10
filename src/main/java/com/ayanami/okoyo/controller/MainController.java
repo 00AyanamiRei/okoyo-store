@@ -42,7 +42,7 @@ public class MainController {
             } else {
                 model.addAttribute("error", "An unknown error occurred.");
             }
-            return "/error/404";
+            return "error/404";
         }
         return "index";
     }
@@ -72,28 +72,15 @@ public class MainController {
             model.addAttribute("order", new Order());
         } else {
             model.addAttribute("error", new NotFoundException("Order basket was not found"));
-            return "/error/404";
+            return "error/404";
         }
         return "shopping-cart";
     }
 
-//    @GetMapping("/category")
-//    public String showCategories(Model model) {
-//        List<Category> listEnabledCategories = categoryRep.findAllEnabled();
-//        model.addAttribute("listCategories", listEnabledCategories);
-//        return "category";
-//    }
-
     @GetMapping("/category")
     public String showCategories(Model model) {
-        try {
-            List<Category> listEnabledCategories = categoryRep.findAllEnabled();
-            model.addAttribute("listCategories", listEnabledCategories);
-        } catch (Exception e) {
-            logger.error("Error occurred while fetching enabled categories", e);
-            model.addAttribute("error", "An error occurred while fetching enabled categories");
-            return "error";
-        }
+        List<Category> listEnabledCategories = categoryRep.findAllEnabled();
+        model.addAttribute("listCategories", listEnabledCategories);
         return "category";
     }
 }

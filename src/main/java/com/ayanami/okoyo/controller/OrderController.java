@@ -43,9 +43,9 @@ public class OrderController {
             model.addAttribute("orders", orders);
         } else {
             model.addAttribute("error", new NotFoundException("Orders was not found"));
-            return "/error/404";
+            return "error/404";
         }
-        return "/user/orders";
+        return "user/orders";
     }
 
     @GetMapping("/payment")
@@ -60,7 +60,7 @@ public class OrderController {
             model.addAttribute("payed", OrderType.Paid.name());
         } else {
             model.addAttribute("error", new NotFoundException("Orders for payment was not found"));
-            return "/error/404";
+            return "error/404";
         }
         return "checkout";
     }
@@ -110,7 +110,7 @@ public class OrderController {
         helper.setSubject(subject);
         helper.setText(mailContent, true);
 
-        ClassPathResource pathResource = new ClassPathResource("/static/assets/logo.gif");
+        ClassPathResource pathResource = new ClassPathResource("static/assets/logo.gif");
         helper.addInline("logoImage", pathResource);
         javaMailSender.send(message);
     }

@@ -11,6 +11,8 @@
     <groupId>com.ayanami</groupId>
     <artifactId>website-okoyo-store</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
     <name>website-okoyo-store</name>
     <description>Site project for Spring Boot</description>
     <properties>

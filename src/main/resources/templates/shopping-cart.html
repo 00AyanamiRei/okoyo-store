@@ -38,9 +38,9 @@
                                         </div>
                                         <a th:href="@{'/product/' + ${product.alias}}" class="zoom">
                                             <img class="img-fluid mx-auto d-block image"
-                                                 th:src="'/product-images/'+${product.imageURL}" width="130"
+                                                 th:src="'product-images/'+${product.imageURL}" width="130"
                                                  height="130"
-                                                 onerror="this.onerror=null; this.src='/img/OIG2.jpg';"/>
+                                                 onerror="this.onerror=null; this.src='img/OIG2.jpg';"/>
                                         </a>
                                     </div>
                                     <div class="col-md-9 text-center mt-5">
@@ -61,7 +61,7 @@
                                                 </div>
                                                 <div class="col-md-4 quantity" style="text-align: center">
                                                     <div class="quantity-input"
-                                                         th:replace="/blocks/fragments :: quantity_control(${basketItem.quantity}, ${product.id})">
+                                                         th:replace="blocks/fragments :: quantity_control(${basketItem.quantity}, ${product.id})">
                                                     </div>
                                                     <div class="subtotal" style="font-weight: 400">
                                                         <span>x [[${product.price}]]</span><span>₴</span>
@@ -104,24 +104,24 @@
     <div th:insert="~{blocks/fragments :: scripts}"></div>
     <script th:src="@{/js/shopping-cart.js}"></script>
     <!--Modal-->
-    <div th:replace="/blocks/fragments :: showModal"></div>
+    <div th:replace="blocks/fragments :: showModal"></div>
     <!--Footer-->
     <footer class="mt-0" th:insert="~{blocks/fragments :: footer}"></footer>
 </main>
 
 
-<script type="text/javascript">
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-            navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
-                // Registration was successful
-                console.log('ServiceWorker registration successful with scope: ', registration.scope);
-            }, function(err) {
-                // registration failed :(
-                console.log('ServiceWorker registration failed: ', err);
-            });
-        });
-    }
-</script>
+<!--<script type="text/javascript">-->
+<!--    if ('serviceWorker' in navigator) {-->
+<!--        window.addEventListener('load', function() {-->
+<!--            navigator.serviceWorker.register('/service-worker.js').then(function(registration) {-->
+<!--                // Registration was successful-->
+<!--                console.log('ServiceWorker registration successful with scope: ', registration.scope);-->
+<!--            }, function(err) {-->
+<!--                // registration failed :(-->
+<!--                console.log('ServiceWorker registration failed: ', err);-->
+<!--            });-->
+<!--        });-->
+<!--    }-->
+<!--</script>-->
 </body>
 </html>

@@ -31,7 +31,7 @@ public class UserController {
             UserInfo userInfo = user.getUserInfo();
             model.addAttribute("userDetails", userInfo);
             model.addAttribute("user", user);
-            return "/user/user-main";
+            return "user/user-main";
         } else {
             model.addAttribute("error", new NotFoundException("User was not found"));
             return "error/404";
@@ -45,7 +45,7 @@ public class UserController {
         model.addAttribute("userDetails", userInfo);
         model.addAttribute("user", user);
 
-        return "/user/user-edit";
+        return "user/user-edit";
     }
 
     @PostMapping("/edit")
@@ -60,7 +60,7 @@ public class UserController {
                         "The password must not be the same.");
                 bindingResult.addError(error);
                 System.err.println(bindingResult.hasErrors());
-                return "/user/user-edit";
+                return "user/user-edit";
             }
         }
         newUser.getUserInfo().setName(user.getUserInfo().getName());

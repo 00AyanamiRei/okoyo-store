@@ -18,8 +18,8 @@
 
 
 
-                <img th:src="'/product-images/'+${product.imageURL}"
-                     onerror="this.onerror=null; this.src='/img/OIG2.jpg';"
+                <img th:src="'product-images/'+${product.imageURL}"
+                     onerror="this.onerror=null; this.src='img/OIG2.jpg';"
                      class="img-fluid rounded" width="300"/>
 
 
@@ -51,7 +51,7 @@
                     <p th:utext="${product.description}"></p>
 
                     <div class="d-flex justify-content-left">
-                        <div th:replace="/blocks/fragments :: quantity_control(1, ${product.id})"
+                        <div th:replace="blocks/fragments :: quantity_control(1, ${product.id})"
                              style="max-width: 3rem">
                         </div>
                         <div>
@@ -90,20 +90,20 @@
 <!--Footer-->
 <footer th:insert="~{blocks/fragments :: footer}"></footer>
 
-<script type="text/javascript">
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-            navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
-                // Registration was successful
-                console.log('ServiceWorker registration successful with scope: ', registration.scope);
-            }, function(err) {
-                // registration failed :(
-                console.log('ServiceWorker registration failed: ', err);
-            });
-        });
-    }
+<!--<script type="text/javascript">-->
+<!--    if ('serviceWorker' in navigator) {-->
+<!--        window.addEventListener('load', function() {-->
+<!--            navigator.serviceWorker.register('/service-worker.js').then(function(registration) {-->
+<!--                // Registration was successful-->
+<!--                console.log('ServiceWorker registration successful with scope: ', registration.scope);-->
+<!--            }, function(err) {-->
+<!--                // registration failed :(-->
+<!--                console.log('ServiceWorker registration failed: ', err);-->
+<!--            });-->
+<!--        });-->
+<!--    }-->
 
-</script>
+<!--</script>-->
 </body>
 
 </html>

@@ -16,10 +16,9 @@
             <div class="col" th:if="${cat.enabled == true}">
                 <a th:href="@{'/category/'+ ${cat.alias}}">
                     <div class="text-center zoom">
-                        <img style="-webkit-filter: drop-shadow(3px 3px 3px #222); filter: drop-shadow(3px 3px 3px #222);
-                     width: 100px; height: 100px;"
-                             th:src="'/category-images/'+${cat.imageURL}"
-                             onerror="this.onerror=null; this.src='/img/OIG2.jpg';"/>
+                        <img style="-webkit-filter: drop-shadow(3px 3px 3px #222); filter: drop-shadow(3px 3px 3px #222); width: 100px; height: 100px;"
+                             th:src="'category-images/'+${cat.imageURL}"
+                             onerror="this.onerror=null; this.src='img/OIG2.jpg';"/>
                     </div>
                     <div class="category_label text-center">
                         [[${cat.title}]]
@@ -38,23 +37,23 @@
     </div>
 
     <!--Pagination-->
-    <div th:replace="blocks/fragments :: pagination('/category/'+ ${category.alias}, 'product')"></div>
+    <div th:replace="blocks/fragments :: pagination('category/'+ ${category.alias}, 'product')"></div>
 
 </div>
 <footer th:insert="~{blocks/fragments :: footer}"></footer>
 </body>
 
-<script type="text/javascript">
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-            navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
-                // Registration was successful
-                console.log('ServiceWorker registration successful with scope: ', registration.scope);
-            }, function(err) {
-                // registration failed :(
-                console.log('ServiceWorker registration failed: ', err);
-            });
-        });
-    }
-</script>
+<!--<script type="text/javascript">-->
+<!--    if ('serviceWorker' in navigator) {-->
+<!--        window.addEventListener('load', function() {-->
+<!--            navigator.serviceWorker.register('/service-worker.js').then(function(registration) {-->
+<!--                // Registration was successful-->
+<!--                console.log('ServiceWorker registration successful with scope: ', registration.scope);-->
+<!--            }, function(err) {-->
+<!--                // registration failed :(-->
+<!--                console.log('ServiceWorker registration failed: ', err);-->
+<!--            });-->
+<!--        });-->
+<!--    }-->
+<!--</script>-->
 </html>
