@@ -459,11 +459,17 @@
     }
   ],
   "id": "website-okoyo-store",
-  "description": "Okoyo Store - Магазин манги, фігурок та колекційних карток.",
   "lang": "en",
+  "display_override": [
+    "window-controls-overlay",
+    "standalone"
+  ],
+  "description": "Okoyo Store - Магазин манги, фігурок та колекційних карток.",
+  "iarc_rating_id": "3",
+  "prefer_related_applications": true,
   "related_applications": [
     {
-      "platform": "play",
+      "platform": "chrome_web_store",
       "url": "https://itemshop.com.ua/",
       "id": "itemshop"
     }
@@ -477,8 +483,7 @@
     "magazines",
     "shopping"
   ],
-  "display_override": [
-    "window-controls-overlay",
-    "standalone"
-  ]
+  "edge_side_panel": {
+    "preferred_width": 5
+  }
 }
