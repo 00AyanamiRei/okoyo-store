@@ -1,0 +1,47 @@
+{
+  "background_color": "#FFFFFF",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "okoyo-store-website-okoyo-store.azuremicroservices",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "okoyo-store",
+  "start_url": "/",
+  "theme_color": "#FFFFFF",
+  "icons": [
+    {
+      "src": "/assets/ios/512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "id": "website-okoyo-store",
+  "lang": "en",
+  "display_override": [
+    "window-controls-overlay",
+    "standalone"
+  ],
+  "description": "Okoyo Store - Магазин манги, фігурок та колекційних карток.",
+  "iarc_rating_id": "3",
+  "prefer_related_applications": true,
+  "related_applications": [
+    {
+      "platform": "chrome_web_store",
+      "url": "https://itemshop.com.ua/",
+      "id": "itemshop"
+    }
+  ],
+  "categories": [
+    "books",
+    "entertainment",
+    "food",
+    "games",
+    "kids",
+    "magazines",
+    "shopping"
+  ],
+  "edge_side_panel": {
+    "preferred_width": 5
+  }
+}
