@@ -3,6 +3,16 @@
       xmlns:sec="http://www.w3.org/1999/xhtml" manifest="manifest.webmanifest">
 <!--Header-->
 <head th:fragment="head(title, remove)" th:remove="${remove}">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <meta name = "theme-color" content="#FFFFFF">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+    </script>
     <meta charset="UTF-8">
     <title>[[${title}]]</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
