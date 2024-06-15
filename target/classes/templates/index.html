@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" manifest="manifest.webmanifest">
 <head th:replace="blocks/fragments :: head('Home - OKOYO', 'none')">
-
-<!--    <script type="text/javascript" th:src="@{/js/service-worker.js}"></script>-->
+    <link rel="manifest" href="/manifest.webmanifest">
     <meta name = "theme-color" content="#FFFFFF">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function() {

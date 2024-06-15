@@ -1,6 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="blocks/fragments :: head('Manage Order - OKOYO', 'none')"></head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" manifest="manifest.webmanifest>
+<head th:replace="blocks/fragments :: head('Manage Order - OKOYO', 'none')">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <meta name = "theme-color" content="#FFFFFF">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+    </script>
+</head>
 <div th:replace="blocks/fragments :: admin_navbar"></div>
 <body>
 <div class="container-fluid">

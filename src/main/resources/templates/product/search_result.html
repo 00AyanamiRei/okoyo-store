@@ -1,6 +1,17 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="blocks/fragments :: head(${pageTitle}, 'none')"></head>
+<html xmlns:th="http://www.thymeleaf.org" manifest="manifest.webmanifest>
+<head th:replace="blocks/fragments :: head(${pageTitle}, 'none')">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name = "theme-color" content="#FFFFFF">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('/service-worker.js');
+        });
+    }
+</script>
+</head>
 <body class="d-flex flex-column min-vh-100">
 <div th:replace="blocks/fragments :: navbar"></div>
 <div class="container-fluid">
