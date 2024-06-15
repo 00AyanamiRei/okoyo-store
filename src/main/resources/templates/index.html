@@ -1,9 +1,16 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" manifest="manifest.webmanifest">
 <head th:replace="blocks/fragments :: head('Home - OKOYO', 'none')">
-    <link rel="manifest" href="/manifest.json">
+
 <!--    <script type="text/javascript" th:src="@{/js/service-worker.js}"></script>-->
     <meta name = "theme-color" content="#FFFFFF">
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+    </script>
 </head>
 <body>
 <div th:replace="blocks/fragments :: navbar"></div>
