@@ -76,10 +76,10 @@
         <!--Left-->
         <div class="collapse navbar-collapse" id="navbarContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item"><a class="nav-link waves-effect rounded" aria-current="page" href="/">[[#{navbar.home}]]</a>
-                </li>
-                <li class="nav-item"><a class="nav-link waves-effect rounded"
-                                        href="/category">[[#{navbar.category}]]</a></li>
+<!--                <li class="nav-item"><a class="nav-link waves-effect rounded" aria-current="page" href="/">[[#{navbar.home}]]</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item"><a class="nav-link waves-effect rounded"-->
+<!--                                        href="/category">[[#{navbar.category}]]</a></li>-->
                 <button id="installButton" style="display: none;">Встановити як додаток</button>
             </ul>
             <ul class="navbar-nav mr-auto ml-auto">
@@ -390,31 +390,33 @@ but can be also used in another admin pages if you modify code to sort and searc
 </div>
 
 <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', (event) => {
     let deferredPrompt;
     let buttonInstall = document.getElementById('installButton');
 
     window.addEventListener('beforeinstallprompt', (e) => {
-        // Prevent the mini-infobar from appearing on mobile
-        e.preventDefault();
-        // Stash the event so it can be triggered later.
-        deferredPrompt = e;
-        // Update UI notify the user they can install the PWA
-        buttonInstall.style.display = 'block';
+      // Prevent the mini-infobar from appearing on mobile
+      e.preventDefault();
+      // Stash the event so it can be triggered later.
+      deferredPrompt = e;
+      // Update UI notify the user they can install the PWA
+      buttonInstall.style.display = 'block';
     });
 
     buttonInstall.addEventListener('click', (e) => {
-        // Hide the app provided install promotion
-        buttonInstall.style.display = 'none';
-        // Show the install prompt
-        deferredPrompt.prompt();
-        // Wait for the user to respond to the prompt
-        deferredPrompt.userChoice.then((choiceResult) => {
-            if (choiceResult.outcome === 'accepted') {
-                console.log('User accepted the install prompt');
-            } else {
-                console.log('User dismissed the install prompt');
-            }
-        });
+      // Hide the app provided install promotion
+      buttonInstall.style.display = 'none';
+      // Show the install prompt
+      deferredPrompt.prompt();
+      // Wait for the user to respond to the prompt
+      deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('User accepted the install prompt');
+        } else {
+          console.log('User dismissed the install prompt');
+        }
+      });
     });
+});
 </script>
 </html>
