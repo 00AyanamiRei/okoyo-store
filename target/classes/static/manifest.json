@@ -187,7 +187,7 @@
     {
       "src": "/assets/windows11/Square44x44Logo.targetsize-16.png",
       "sizes": "16x16",
-      "type": "image/png", "purpose": "any maskable"
+      "type": "image/png", "purpose": "any"
     },
     {
       "src": "/assets/windows11/Square44x44Logo.targetsize-20.png",
@@ -337,7 +337,7 @@
     {
       "src": "/assets/windows11/Square44x44Logo.altform-lightunplated_targetsize-16.png",
       "sizes": "16x16",
-      "type": "image/png", "purpose": "any maskable"
+      "type": "image/png", "purpose": "any"
     },
     {
       "src": "/assets/windows11/Square44x44Logo.altform-lightunplated_targetsize-20.png",
@@ -417,7 +417,14 @@
     {
       "src": "/assets/android/android-launchericon-192-192.png",
       "sizes": "192x192",
-      "type": "image/png", "purpose": "any"
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/assets/android/android-launchericon-192-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "/assets/android/android-launchericon-144-144.png",
@@ -442,7 +449,7 @@
     {
       "src": "/assets/ios/16.png",
       "sizes": "16x16",
-      "type": "image/png", "purpose": "any maskable"
+      "type": "image/png", "purpose": "any"
     },
     {
       "src": "/assets/ios/20.png",
@@ -559,13 +566,7 @@
       "src": "/assets/ios/180.png",
       "sizes": "180x180",
       "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/assets/ios/192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
       "src": "/assets/ios/256.png",
@@ -967,7 +968,7 @@
       "src": "/assets/windows11/Square44x44Logo.altform-lightunplated_targetsize-16.png",
       "sizes": "16x16",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
       "src": "/assets/windows11/Square44x44Logo.altform-lightunplated_targetsize-20.png",
@@ -1081,7 +1082,7 @@
       "src": "/assets/ios/16.png",
       "sizes": "16x16",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
       "src": "/assets/ios/20.png",
@@ -1204,18 +1205,6 @@
       "purpose": "any maskable"
     },
     {
-      "src": "/assets/ios/180.png",
-      "sizes": "180x180",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/assets/ios/192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
       "src": "/assets/ios/256.png",
       "sizes": "256x256",
       "type": "image/png",
@@ -1225,7 +1214,7 @@
       "src": "/assets/ios/512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
       "src": "/assets/ios/1024.png",

@@ -8,7 +8,7 @@ const PRECACHE_ASSETS = [
     '/static/js/main.js',
     '/static/assets/',
     '/static/',
-    '/templates/'
+    q   ``
 ]
 
 // Listener for the install event - pre-caches our assets list on service worker install.
