@@ -7,28 +7,11 @@
     <meta name = "theme-color" content="#FFFFFF">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script>
-        // if ('serviceWorker' in navigator) {
-        //     window.addEventListener('load', function() {
-        //         navigator.serviceWorker.register('static/service-worker.js');
-        //     });
-        // }
-
-        const CACHE = "pwabuilder-offline";
-
-        importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
-
-        self.addEventListener("message", (event) => {
-            if (event.data && event.data.type === "SKIP_WAITING") {
-                self.skipWaiting();
-            }
-        });
-
-        workbox.routing.registerRoute(
-            new RegExp('/*'),
-            new workbox.strategies.StaleWhileRevalidate({
-                cacheName: CACHE
-            })
-        );
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
     </script>
     <meta charset="UTF-8">
     <title>[[${title}]]</title>
