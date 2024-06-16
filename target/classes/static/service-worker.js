@@ -164,6 +164,7 @@ self.addEventListener('fetch', (event) => {
             return networkResp;
         } catch (error) {
             console.log('Fetch failed for:', event.request.url); // Log the request that is causing the error
+            //test
             const cache = await caches.open(CACHE);
             const cachedResp = await cache.match(offlineFallbackPage);
             return cachedResp;
