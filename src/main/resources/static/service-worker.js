@@ -24,19 +24,17 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', event => {
-    event.respondWith(async () => {
-        const cache = await caches.open(CACHE_NAME);
+  event.respondWith(
+    caches.match(event.request)
+      .then(response => {
+        // Cache hit - return the response from the cached version
+        if (response) {
+          return response;
+        }
 
-        // match the request to our cache
-        const cachedResponse = await cache.match(event.request);
-
-        // check if we got a valid response
-        if (cachedResponse !== undefined) {
-            // Cache hit, return the resource
-            return cachedResponse;
-        } else {
-            // Otherwise, go to the network
-            return fetch(event.request)
-        };
-    });
+        // Not in cache - return the result from the network
+        return fetch(event.request);
+      }
+    )
+  );
 });
